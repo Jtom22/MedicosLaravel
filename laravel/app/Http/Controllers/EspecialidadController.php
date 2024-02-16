@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Medico;
 use Illuminate\Http\Request;
 use App\Models\Especialidad;
 
@@ -13,7 +14,8 @@ class EspecialidadController extends Controller
     public function index()
     {
         //
-        $Especialidades=Especialidades::all();
+        $especialidades = Especialidad::all();
+        return view('index', compact('especialidades'));
     }
 
     /**
@@ -22,6 +24,7 @@ class EspecialidadController extends Controller
     public function create()
     {
         //
+        return view('create');
     }
 
     /**
@@ -30,6 +33,15 @@ class EspecialidadController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'codigo' => 'required',
+            'descripcion' => 'required',
+        ]);
+
+        Especialidad::create($request->all());
+
+        return redirect()->route('especialidades.index')
+            ->with('success', 'Especialidad creada exitosamente.');
     }
 
     /**
@@ -38,7 +50,8 @@ class EspecialidadController extends Controller
     public function show(string $id)
     {
         //
-        $Especialidad=Especialidad::find($id);
+        $especialidad = Especialidad::findOrFail($id);
+        return view('show', compact('especialidad'));
     }
 
     /**
@@ -47,6 +60,8 @@ class EspecialidadController extends Controller
     public function edit(string $id)
     {
         //
+        $especialidad = Especialidad::findOrFail($id);
+        return view('edit', compact('especialidad'));
     }
 
     /**
@@ -55,6 +70,16 @@ class EspecialidadController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'codigo' => 'required',
+            'descripcion' => 'required',
+        ]);
+
+        $especialidad = Especialidad::findOrFail($id);
+        $especialidad->update($request->all());
+
+        return redirect()->route('especialidades.index')
+            ->with('success', 'Especialidad actualizada exitosamente.');
     }
 
     /**
@@ -63,5 +88,18 @@ class EspecialidadController extends Controller
     public function destroy(string $id)
     {
         //
+        $especialidad = Especialidad::findOrFail($id);
+        $especialidad->delete();
+
+        return redirect()->route('especialidades.index')
+            ->with('success', 'Especialidad eliminada exitosamente.');
+    }
+
+    public function medicos($especialidadId)
+    {
+        $especialidad = Especialidad::findOrFail($especialidadId);
+        $medicos = Medico::where('especialidad_id', $especialidad->id)->get();
+
+        return view('medicos', compact('especialidad', 'medicos'));
     }
 }

@@ -18,8 +18,13 @@ class Medico extends Model
     {
         return $this->belongsTo(Especialidad::class);
     }  
-    
+
     public function consultaMedica(){
         return $this->hasMany(ConsultaMedica::class);
-    }     
+    } 
+    
+    public function Paciente(){
+        return $this->hasMany(Paciente::class);
+    }
+
 }

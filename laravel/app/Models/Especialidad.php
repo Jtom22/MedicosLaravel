@@ -10,10 +10,13 @@ class Especialidad extends Model
 {
     use HasFactory;
     //protected $fillable = ['codigo', 'descripcion'];
-    
+    //Para el store  y update de la tabla
+    protected $fillable = ['codigo', 'descripcion'];
+
     public function medicos(){
         return $this->hasMany(Medico::class);
     }
+
     
     // public function medico()
     // {

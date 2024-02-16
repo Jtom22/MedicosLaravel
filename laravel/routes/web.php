@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EspecialidadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// routes/web.php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('especialidades', EspecialidadController::class);
+
+// Ruta adicional para ver médicos de una especialidad
+Route::get('especialidades/{especialidad}/medicos', [EspecialidadController::class, 'medicos'])
+    ->name('especialidades.medicos');   
