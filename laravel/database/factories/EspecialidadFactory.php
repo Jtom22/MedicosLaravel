@@ -2,13 +2,16 @@
 
 namespace Database\Factories;
 
+use App\Models\Especialidad;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Especialidad>
  */
 class EspecialidadFactory extends Factory
 {
+    protected $model = Especialidad::class;
     /**
      * Define the model's default state.
      *
@@ -17,8 +20,8 @@ class EspecialidadFactory extends Factory
     public function definition(): array
     {
         return [
-            'codigo' => fake()->integer(),
-            'descripcion' => fake()->word()
+            'codigo' => $this->faker->unique()->numberBetween(111111111,999999999),
+            'descripcion' => $this->faker->word()
         ];
     }
 }

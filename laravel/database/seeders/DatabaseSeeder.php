@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Medico;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,15 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(ConsultaMedicaMedicoSeeder::class);
-        $this->call(ConsultaMedicapacienteSeeder::class);
-        $this->call(CoverturaMedicaSeeder::class);
-        $this->call(EspecialidadMedicoSeeder::class);
+
+        $this->call(CoberturaMedicaSeeder::class);
+        $this->call(EspecialidadSeeder::class);
         $this->call(MedicoSeeder::class);
         $this->call(PacienteSeeder::class);
-        $this->call(EspecialidadSeeder::class);
-
-
-
+        $this->call(ConsultaMedicaSeeder::class);
+        $this->call(TipoEstudioSeeder::class);
+      
+        
     }
 }

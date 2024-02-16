@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\ConsultaMedica;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Medico;
 
-class MedicoSeeder extends Seeder
+class ConsultaMedicaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,6 @@ class MedicoSeeder extends Seeder
     public function run(): void
     {
         //
-        Medico::factory(12)->create();
-
+        ConsultaMedica::factory(12)->create();
     }
 }

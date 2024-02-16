@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TipoEstudio>
  */
 class TipoEstudioFactory extends Factory
 {
@@ -17,8 +17,11 @@ class TipoEstudioFactory extends Factory
     public function definition(): array
     {
         return [
-            'codigo' => fake()->dni(),
-            'descripcion' => fake()->word()
+            //
+            'codigo' => $this->faker->unique()->numberBetween(111111111,999999999),
+            'descripcion' => $this->faker->word(),
+
         ];
+        
     }
 }

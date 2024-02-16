@@ -4,17 +4,16 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Medico;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\CoberturaMedica;
 
-class MedicoSeeder extends Seeder
+class CoberturaMedicaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        //
-        Medico::factory(12)->create();
-
+        CoberturaMedica::factory(12)->create();
     }
 }

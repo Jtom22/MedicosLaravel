@@ -3,9 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\CoberturaMedica;
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CoberturaMedica>
  */
 class CoberturaMedicaFactory extends Factory
 {
@@ -14,11 +14,12 @@ class CoberturaMedicaFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = CoberturaMedica::class;
     public function definition(): array
     {
         return [
-            'codigo' => fake()->numberBetween(1000, 3000),
-            'descripcion' => fake()->word()
+            'codigo' => $this->faker->unique()->numberBetween(111111111,999999999),
+            'descripcion' => $this->faker->word()
         ];
     }
 }

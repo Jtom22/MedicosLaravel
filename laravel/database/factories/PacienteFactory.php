@@ -3,9 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Paciente;
+use App\Models\CoberturaMedica;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Paciente>
  */
 class PacienteFactory extends Factory
 {
@@ -14,14 +16,21 @@ class PacienteFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Paciente::class;
+
     public function definition(): array
     {
+        $coberturaMedica = CoberturaMedica::all();
+
         return [
-            'nombre' => fake()->firstName(),
-            'apellido' => fake()->lastName(),
-            'tipo_doc' => fake()->randomElement(['tipoA', 'tipoB', 'tipoC', 'tipoD']),
-            'nro_doc' => fake()->numberBetween(1000, 3000),
-            'fecha_nac' => fake()->dateTimeBetween('-100 year', 'now')
+
+            'nombre' => $this->faker->firstName(),
+            'apellido' => $this->faker->lastName(),
+            'tipo_doc' => $this->faker->word(),
+            'nro_doc' => $this->faker->word(),
+            'fecha_nac' => $this->faker->date(),
+            'cobertura_medica_id'=>fake()->numberBetween(1,$coberturaMedica->count())
+
         ];
     }
 }

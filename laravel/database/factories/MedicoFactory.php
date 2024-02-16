@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Especialidad;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Medico>
  */
 class MedicoFactory extends Factory
 {
@@ -16,10 +17,15 @@ class MedicoFactory extends Factory
      */
     public function definition(): array
     {
+        $especialidad = Especialidad::all();
         return [
-            'Matricula' => fake()->word(),
-            'nombre' => fake()->firstName(),
-            'apellido' => fake()->lastName()
+            //
+            'Matricula' => $this->faker->text(10),
+            'nombre' => $this->faker->firstName(),
+            'apellido' => $this->faker->lastName(),
+            'especialidad_id'=>fake()->numberBetween(1,$especialidad->count())
+
+           
         ];
     }
 }

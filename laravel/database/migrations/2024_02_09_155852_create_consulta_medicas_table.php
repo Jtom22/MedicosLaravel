@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('especialidads', function (Blueprint $table) {
-            $table->id();
-            $table->Integer('codigo')->unique();
-            $table->string('descripcion',200);
-            $table->timestamps();
+        Schema::create('consulta_medicas', function (Blueprint $table) {
 
+            $table->id();
+            $table->dateTime('fecha_hora');
+            $table->timestamps();
         });
+
+
     }
 
     /**
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('especialidads');
+        Schema::dropIfExists('consulta_medicas');
     }
 };

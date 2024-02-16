@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tipoestudio;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Medico;
 
-class MedicoSeeder extends Seeder
+class TipoEstudioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,6 @@ class MedicoSeeder extends Seeder
     public function run(): void
     {
         //
-        Medico::factory(12)->create();
-
+        TipoEstudio::factory(12)->create();
     }
 }

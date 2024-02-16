@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Paciente;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Paciente;
-use Illuminate\Support\Facades\DB;
-
 
 class PacienteSeeder extends Seeder
 {
@@ -15,7 +13,7 @@ class PacienteSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('pacientes')->truncate();
-        Paciente::factory()->count(12)->create();
+        //
+        Paciente::factory(12)->create();
     }
 }
