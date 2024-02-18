@@ -9,7 +9,7 @@ use App\Models\Medico;
 class Especialidad extends Model
 {
     use HasFactory;
-    //protected $fillable = ['codigo', 'descripcion'];
+
     //Para el store  y update de la tabla
     protected $fillable = ['codigo', 'descripcion'];
 
@@ -18,8 +18,5 @@ class Especialidad extends Model
     }
 
     
-    // public function medico()
-    // {
-    //     return $this->belongsTo(Medico::class);
-    // }       
+
 }

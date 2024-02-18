@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Especialidad;
+use App\Models\TipoEstudio;
 
 class Medico extends Model
 {
@@ -26,5 +27,10 @@ class Medico extends Model
     public function Paciente(){
         return $this->hasMany(Paciente::class);
     }
+
+    public function TipoEstudio(){
+        return $this->hasMany(TipoEstudio::class);
+    }
+    
 
 }

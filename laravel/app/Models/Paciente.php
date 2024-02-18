@@ -18,4 +18,11 @@ class Paciente extends Model
     public function consultaMedica(){
         return $this->hasMany(ConsultaMedica::class);
     }
+
+    public function Medico(){
+        return $this->hasMany(Medico::class);
+    }
+    public function tipoEstudio(){
+        return $this->hasMany(TipoEstudio::class);
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\CoberturaMedica;
+use Illuminate\Support\Facades\DB;
 
 class CoberturaMedicaSeeder extends Seeder
 {
